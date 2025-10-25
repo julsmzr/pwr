@@ -1,0 +1,11 @@
+matplotlib
+numpy
+pandas
+opencv
+pillow
+scikit-learn
+scipy
+
+requests
+tabulate
+tqdm

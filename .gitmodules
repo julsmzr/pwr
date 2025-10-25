@@ -1,0 +1,6 @@
+[submodule "ai"]
+	path = ai
+	url = https://github.com/julsmzr/uav-ai.git
+[submodule "ml/mlproj"]
+	path = ml/mlproj
+	url = https://github.com/julsmzr/pong-ml.git
