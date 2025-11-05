@@ -30,7 +30,7 @@ def task3(a1, a2):
 
     fig.tight_layout()
     plt.grid()
-    plt.savefig("plot.png")
+    plt.savefig("outputs/plot.png", dpi=300)
 
     print("Task 3 Output\n")
     print("Plot successfully saved to 'plot.png'")

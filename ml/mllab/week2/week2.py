@@ -37,7 +37,7 @@ def task1():
     ax.set_ylabel(column_names[1])
 
     fig.tight_layout()
-    fig.savefig("outputs/task1.png")
+    fig.savefig("outputs/task1.png", dpi=300)
 
 
 def task2():
@@ -51,7 +51,7 @@ def task2():
             ax[i, j].set_ylabel(column_names[j])
 
     fig.tight_layout()
-    fig.savefig("outputs/task2.png")
+    fig.savefig("outputs/task2.png", dpi=300)
 
 
 def task3():
@@ -83,7 +83,7 @@ def task3():
     ax.grid(ls=":", c=(.7, .7, .7))
 
     fig.tight_layout()
-    fig.savefig("outputs/task3.png")
+    fig.savefig("outputs/task3.png", dpi=300)
 
 
 if __name__ == "__main__":
