@@ -4,3 +4,6 @@
 [submodule "ml/mlproj"]
 	path = ml/mlproj
 	url = https://github.com/julsmzr/pong-ml.git
+[submodule "nn/nnproj"]
+	path = nn/nnproj
+	url = https://github.com/julsmzr/uav-nn.git
