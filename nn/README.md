@@ -6,8 +6,12 @@ all lecture notes are stores in notion: https://www.notion.so/Lecture-2847bd4ba8
 
 ### setting up the dev env
 
+```bash
 conda create -n nn
 conda install --file requirements.txt
+```
 
 ### activating the dev env
+```bash
 conda activate nn
+```
