@@ -2,7 +2,7 @@ import numpy as np
 
 from sklearn.ensemble import BaseEnsemble
 from sklearn.base import ClassifierMixin, clone, BaseEstimator
-from sklearn.utils.validation import validate_data, check_is_fitted # type: ignore
+from sklearn.utils.validation import validate_data, check_is_fitted
 from sklearn.naive_bayes import GaussianNB
 from sklearn.utils.multiclass import unique_labels
 from scipy.stats import mode
@@ -42,14 +42,14 @@ class RandomSubspace(ClassifierMixin, BaseEnsemble):
 
         if self.voting == "hard": # majority voting
             self.preds = mode(self.preds_arr, axis=0)[0]
-        elif self.voting == "soft": # 
+        elif self.voting == "soft": # support accumulation
             self.probas_arr = np.array([
             self.ensemble[i].predict_proba(X[:, self.subspaces[i]])
             for i in range(self.n_estimators)
         ])
             self.mean_probas = np.mean(self.probas_arr, axis=0)
             self.preds = np.argmax(self.mean_probas, axis=1)
+        else:
+            raise ValueError("Unknown voting %s" % self.voting)
 
         return self.preds
-
-# TODO clean
