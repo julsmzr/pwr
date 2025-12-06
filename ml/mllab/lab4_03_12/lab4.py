@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
@@ -29,7 +30,6 @@ def task1():
     fig.savefig("outputs/task1.png", dpi=300)
 
     print("Figure saved to outputs/task1.png")
-
     print("-" * 50)
 
 def task2():
@@ -51,11 +51,10 @@ def task2():
                 d = cdist(X, centers)
                 a = np.argmin(d, axis=1)
 
-                centers[0] = np.mean(X[a == 0], axis=0)
-                centers[1] = np.mean(X[a == 1], axis=0)
-                centers[2] = np.mean(X[a == 2], axis=0)
+                for i in range(3):
+                    centers[i] = np.mean(X[a == i], axis=0)
 
-                print(centers)
+                print(centers, "\n")
             
             return np.argmin(cdist(X, centers), axis=1)
 
@@ -76,7 +75,6 @@ def task2():
     fig.savefig("outputs/task2.png", dpi=300)
 
     print("Figure saved to outputs/task2.png")
-    
     print("-" * 50)
 
 def task3():
@@ -84,50 +82,39 @@ def task3():
     print("-" * 50)
 
     random_center = np.random.randint(3, 10)
-    X, y = make_blobs(n_samples=1500, n_features=10, cluster_std=1.0, centers=random_center, random_state=33) # type; ignore
+    X, y = make_blobs(n_samples=1500, n_features=10, cluster_std=1.0, centers=random_center, random_state=33)
 
-    scores_a_1, scores_a_2, scores_b_1, scores_b_2 = [], [], [], []
+    low_k = 2
+    high_k = 11
 
-    cardinalities = np.linspace(2, 11, 10, dtype=int)
+    cardinalities = np.linspace(low_k, high_k, high_k - low_k + 1, dtype=int)
+    scores = np.zeros((2, 2, len(cardinalities)))
+
     fig, ax = plt.subplots(2, 2, figsize=(10, 5))
 
-    for k in cardinalities:
+    for k_idx, k in enumerate(cardinalities):
         y_pred = KMeans(n_clusters=k).fit_predict(X)
 
-        scores_a_1.append(rand_score(y, y_pred))
-        scores_a_2.append(completeness_score(y, y_pred))
-
-        scores_b_1.append(davies_bouldin_score(X, y_pred))
-        scores_b_2.append(calinski_harabasz_score(X, y_pred))
-
-    ax[0, 0].plot(cardinalities, scores_a_1, color='black', marker='o')
-    ax[1, 0].plot(cardinalities, scores_a_2, color='black', marker='o')
-
-    ax[0, 1].plot(cardinalities, scores_b_1, color='black', marker='o')
-    ax[1, 1].plot(cardinalities, scores_b_2, color='black', marker='o')
-
-    ax[0, 0].scatter(np.argmax(scores_a_1) + 2, np.max(scores_a_1), marker='x', color='red', s=100)
-    ax[1, 0].scatter(np.argmax(scores_a_2) + 2, np.max(scores_a_2), marker='x', color='red', s=100)
-
-    ax[0, 1].scatter(np.argmin(scores_b_1) + 2, np.min(scores_b_1), marker='x', color='red', s=100)
-    ax[1, 1].scatter(np.argmax(scores_b_2) + 2, np.max(scores_b_2), marker='x', color='red', s=100)
+        scores[0, 0, k_idx] = (rand_score(y, y_pred))
+        scores[0, 1, k_idx] = (completeness_score(y, y_pred))
+        scores[1, 0, k_idx] = (davies_bouldin_score(X, y_pred))
+        scores[1, 1, k_idx] = (calinski_harabasz_score(X, y_pred))
 
     for i in range(2):
         for j in range(2):
+            ax[i, j].plot(cardinalities, scores[i, j], color='black', marker='o')
+            ax[i, j].scatter(np.argmax(scores[i, j]) + 2, np.max(scores[i, j]), marker='x', color='red', s=100, zorder=10)
             ax[i, j].grid(ls=":", c=(.7, .7, .7))
 
     fig.tight_layout()
     fig.savefig("outputs/task3.png", dpi=300)
 
     print("Random number of centers:", random_center)
-    print("Figure saved to outputs/task3.png")
-
+    print("\nFigure saved to outputs/task3.png")
     print("-" * 50)
 
 if __name__ == "__main__":
+    os.makedirs("outputs", exist_ok=True)
     task1()
     task2()
     task3()
-
-
-    # TODO clean
