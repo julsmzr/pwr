@@ -35,13 +35,11 @@ class RandomSubspace(ClassifierMixin, BaseEnsemble):
         check_is_fitted(self)
         X = validate_data(self, X, reset=False)
 
-        self.preds_arr = np.array([
+        if self.voting == "hard": # majority voting
+            self.preds = mode(np.array([
             self.ensemble[i].predict(X[:, self.subspaces[i]])
             for i in range(self.n_estimators)
-        ])
-
-        if self.voting == "hard": # majority voting
-            self.preds = mode(self.preds_arr, axis=0)[0]
+        ]), axis=0)[0]
         elif self.voting == "soft": # support accumulation
             self.probas_arr = np.array([
             self.ensemble[i].predict_proba(X[:, self.subspaces[i]])
