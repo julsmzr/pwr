@@ -1,0 +1,30 @@
+what is harder to analyse image or tabular data
+
+with deep learning image so easy, images are homogenous, correlation is clear (spatial), range is clear, ...
+for tabular data its heterogenous so less structure. correclation is harder, less clear. missing data, different kinds of features
+
+
+Deep learning for abular data
+- data enconding methods
+    - single dim encoding
+    - multi dim encodig
+- specialized architectures
+    - hybrid models
+      - fully
+      - partly differntiable
+    - transformer based models
+- transformer based
+
+encoding of data
+ordinal/label encoding: assign number to each category; problem we introduce information by assigning numbers 0,1,2, .. so the model could learn stuff thatw    asnt intentional than just using banana apple ...
+one hot encoding tuples (1,0) (0,1) and so on. problem lots of useless space wasted, high dims are harder for models
+binary encodding 
+leave one out encoding categoz is replaced with mean of target value 
+hash based
+
+multi dim encoding
+stml, igtd, di, retire
+encode into image and use cnn to classify
+
+retire own model, radar type with maxvalue circle
+transfer learning enabled! 

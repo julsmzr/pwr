@@ -1,0 +1,61 @@
+12.12.26
+
+metrics in the label
+"exams questions will require all the math"
+    would nice to now that they exist but no formular (randscore, ...)
+
+you should knwo to use different methods for clustering and regression, nothing specific
+
+how to handle unbalanced data?
+    images use deeplearning: calculate the weights of BaseClassifiers
+    KNN: giving benefit to the majority/minority of the data
+
+basic approach is under/over something; having a equal number of classefieres
+undersampling is removing till you have almost the same number per class
+    benefit: it is faster
+    random undersampling 
+    you could lose some information
+
+oversampling: replicating at random 
+    giving the minority more weight
+    SMOTE 
+        genereting synthetic data
+        depends which is the best for the dataset
+        "take random minorities and generate samples along the lines"
+        detecting decicion line border and adding samples along it
+
+you can also split for one class classifier for each class
+
+hyprid use: Bagging
+    each subset is balanced and take random samples
+    train on portions of unbalenced data and form an ensamble
+
+changes are not segnificant becaus the possibilities are too big 
+
+focus of exam question?
+    dont have to remember just understand
+    first evaluation: related: cossvalidation leave one out, metrics, should you use accuracy for imbalenced data
+    this is the level of question
+
+    evaluation protocolls, splits of the data, how why , which metric for balanced, does it work if yes why 
+    5 questions
+    variants of machine learning; semi suppervisot in which szenario do we use it, why is it helpful
+
+    ensemble we have 3 steps in classifier ensemble, which part is optional, why
+
+    data streams, descripe the differences in datastring and data stream 
+
+    last question: more difficult, define the concept of oracle, can it determin the upper level of accuracy
+
+    describing algorithm without code, random subspace, bagging 
+    describe decision hard and soft voting
+
+    Print out or just show questions; 3-4 lines per answers
+    eather you know or you don't
+    first attempt will be easier (smiles)
+
+    he will make a document to ask about all topics in january 
+
+datastreams will be on exam, revision(21.01), autodistribution(maybe not in scope), adversarial? (maybe not in scope), timeseries (not sure in exam),
+
+# TODO

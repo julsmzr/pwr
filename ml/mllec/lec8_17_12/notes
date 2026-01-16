@@ -1,0 +1,13 @@
+lecture about ensemble selection step
+clf ensmebles is a BIG topic in the exam
+
+knoda-u: k nearest oracle...
+
+instead ofh aving 2 datasets we have 3 (train, val, DSAL) dynamic selection dataset a small subset of training set
+
+start with bagging, generate pool of clfs (e.g. 100 clfs)
+then when new test sample comes in to be classified, we search for 6-7 closest neighbors in val set
+then we use all base clfs (100) to classify these 6-7 samples. calc how many were correctly classified
+then when doing the prediction using e.g. majority voting, we assign weight to each base clf corresponding to the no. of correctly predicted samples
+so e.g. if 3 of 7 are classified correcctly, weight is 3. if 0/7 the weight is 0
+

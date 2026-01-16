@@ -1,0 +1,9 @@
+lecture on backpropagation, softmax and cross entropy loss
+
+important for exam: be able to do simple neural network MLP forward and backward pass calculations (e.g. two neurons)
+
+d SSR / d b3 = d SSR / d Predict - d Predict / d b2 = sum from i=0 to N of -2(obds1-pred1)
+TODO repeat chain rule from i2dl and how to calc forward backward passaa
+
+simple 2 input x 3 output y two neuerons (10 weights, 10 biases)
+

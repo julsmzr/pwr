@@ -1,0 +1,15 @@
+logistic regression lecture
+
+
+recap linear regression:
+- solve using least squares (squared sum of residuals)
+step by step calculation! using sum of mse, derivative, learning rate, -> step calculation, ...
+
+sigmoud vs maximmum likelihood! log odds function! 
+
+
+
+log(p / (1-p))
+know equation for this and for sigmoid!
+
+

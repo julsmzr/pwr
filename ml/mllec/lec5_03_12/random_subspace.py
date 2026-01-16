@@ -27,7 +27,7 @@ class RandomSubspace(ClassifierMixin, BaseEnsemble):
         self.ensemble = [
             clone(self.base_estimator).fit(self.X_[:, self.subspaces[i]], y)
             for i in range(self.n_estimators)
-            ]
+        ]
         
         return self
     

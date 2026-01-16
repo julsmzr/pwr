@@ -1,0 +1,10 @@
+notiontransfer learning
+
+interesting/relevant papers:
+frustratingly easy tranferability estimation
+a survey on negative transfer
+
+train on scarce target data -> train on full target data shows similar distribution just higher acc. -> can give valuable insight
+
+transrate is a measure that quantifies transferability well
+freezing L-3 layers from the feature extractor is usually better than freezing all L layers for transfer learning
